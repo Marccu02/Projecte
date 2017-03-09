@@ -1,0 +1,60 @@
+nt sensor;
+void setup() {
+
+  // initialize the digital pin as an output.
+  for(int i=5;  i<11; i++){ 
+  pinMode(i, OUTPUT);
+  }
+  pinMode(3,INPUT); //sensor de luz connectat al 3 entra informació por el port 
+  Serial.begin(9600); 
+  
+}
+
+// the loop routine runs over and over again forever:
+void loop() { //bucle
+  int el_ultimo_motor_que_se_ha_movido 
+
+  if(sensor == 0 && el_ultimo_motor_que_se_ha_movido == 1){
+
+  digitalWrite(7, HIGH); //Enable 1
+   digitalWrite(6, LOW); //I1 motor derecha direcció 
+   digitalWrite(5, LOW); //I2 motor derecha direcció 
+   
+   digitalWrite(8, HIGH); //Enable 2
+   digitalWrite(9, LOW); //I3 motor izquierda direcció 
+   digitalWrite(10, HIGH); //I4 motor izquierda direcció 
+  }
+    
+   if(sensor == 0 && el_ultimo_motor_que_se_ha_movido == 0){    
+   digitalWrite(7, HIGH); //Enable 1
+   digitalWrite(6, LOW); //I1 motor derecha direcció 
+   digitalWrite(5,HIGH); //I2 motor derecha direcció 
+  
+   digitalWrite(8, HIGH); //Enable 2                                                                       
+   digitalWrite(9, LOW); //I3 motor izquierda direcció
+   digitalWrite(10, LOW); //I4 motor izquierda direcció 
+   }
+
+   if(sensor == 1 && el_ultimo_motor_que_se_ha_movido == 0){
+
+  digitalWrite(7, HIGH); //Enable 1
+   digitalWrite(6, LOW); //I1 motor derecha direcció 
+   digitalWrite(5, LOW); //I2 motor derecha direcció 
+   
+   digitalWrite(8, HIGH); //Enable 2
+   digitalWrite(9, LOW); //I3 motor izquierda direcció 
+   digitalWrite(10, HIGH); //I4 motor izquierda direcció 
+  }
+    
+   if(sensor == 1 && el_ultimo_motor_que_se_ha_movido == 1){    
+   digitalWrite(7, HIGH); //Enable 1
+   digitalWrite(6, LOW); //I1 motor derecha direcció 
+   digitalWrite(5,HIGH); //I2 motor derecha direcció 
+  
+   digitalWrite(8, HIGH); //Enable 2                                                                       
+   digitalWrite(9, LOW); //I3 motor izquierda direcció
+   digitalWrite(10, LOW); //I4 motor izquierda direcció 
+   }
+   
+   sensor=digitalRead(4); // sensor variable lee por el port 4
+   Serial.println(sensor);
